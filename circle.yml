@@ -1,10 +1,16 @@
 machine:
+  pre:
+    - mkdir ~/.yarn-cache
   environment:
     DATABASE_URL: postgresql://ubuntu:@127.0.0.1:5432/circle_test
     NODE_ENV: test
     node:
       version: 6.1.0
 dependencies:
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+  cache_directories:
+    - ~/.yarn-cache
   override:
     - yarn install
 database:
@@ -15,4 +21,13 @@ compile:
     - nvm use 6 && npm run circle-build
 test:
   override:
-    - nvm use 6 && npm test
+    - yarn test
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: your-production-app
+  staging:
+    branch: staging
+    heroku:
+      appname: your-staging-app
