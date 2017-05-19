@@ -6,7 +6,7 @@ machine:
       version: 6.1.0
 dependencies:
   override:
-    - nvm install 6 && npm install
+    - yarn install
 database:
   override:
     - psql -U ubuntu circle_test < database/fridgr.sql
