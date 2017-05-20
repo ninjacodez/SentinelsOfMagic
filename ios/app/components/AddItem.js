@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Text, View, TextInput, Image, Button, Keyboard, TouchableWithoutFeedback } from 'react-native';
+=======
+import { Text, View, TextInput, Image, Button } from 'react-native';
+>>>>>>> add styling and error handling in Login, Signup, AddItem, Setting, ChangeUser
 import { Button as MDButton, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
@@ -30,7 +34,7 @@ class AddItem extends Component {
       notes: '',
       errorName: '',
       errorText: '',
-      image: ''
+      image: null
     }
     this.onPressSubmit = this.onPressSubmit.bind(this);
     // this.onPressScan = this.onPressScan.bind(this);
@@ -109,6 +113,7 @@ class AddItem extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const image = (this.state.image !== '' ?
     (<Image style={{
       width: 200,
@@ -150,6 +155,41 @@ class AddItem extends Component {
           />
         </View>
       </TouchableWithoutFeedback>
+=======
+    const image = this.state.image?
+    (<Image style={{
+      width: 200,
+      height: 200
+    }} source={{
+      uri: this.state.image
+    }}/> )
+    : ( <View></View> );
+
+    return (
+      <View style={styles.container}>
+        {image}
+        <Text style={styles.welcome}>
+          Add New Item
+        </Text>
+        <TextField
+          label="New Item"
+          onChangeText={(name) => this.setState({name})}
+          value={this.state.name}
+          autoCorrect={false}
+        />
+        <TextField
+          label="Notes"
+          multiline={true}
+          onChangeText={(notes) => this.setState({notes})}
+          value={this.state.notes}
+        />
+        <MDButton
+          onPress={this.onPressSubmit}
+          text="Submit"
+          raised={true}
+        />
+      </View>
+>>>>>>> add styling and error handling in Login, Signup, AddItem, Setting, ChangeUser
     );
   }
 }
