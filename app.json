@@ -2,7 +2,7 @@
   "name": "fridgr",
   "displayName": "fridgr",
   "scripts": {
-    "postdeploy": "psql -d fridgr -a -f database/fridgr.sql"
+    "postdeploy": "psql -d DATABASE_URL -a -f database/fridgr.sql"
   },
   "env": {
   },
