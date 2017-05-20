@@ -30,7 +30,7 @@ class AddItem extends Component {
       notes: '',
       errorName: '',
       errorText: '',
-      image: ''
+      image: null
     }
     this.onPressSubmit = this.onPressSubmit.bind(this);
     // this.onPressScan = this.onPressScan.bind(this);
