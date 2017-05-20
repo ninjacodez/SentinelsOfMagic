@@ -2,7 +2,7 @@
   "name": "fridgr",
   "displayName": "fridgr",
   "scripts": {
-    "heroku-postbuild": "pg_dump $STAGING_DATABASE_URL | psql $DATABASE_URL"
+    "heroku-postbuild": "psql --app fridgr-mobile < ./database/fridgr.sql"
   },
   "env": {
   },
