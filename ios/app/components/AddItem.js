@@ -30,7 +30,7 @@ class AddItem extends Component {
       notes: '',
       errorName: '',
       errorText: '',
-      image: null
+      image: 'https://cdn0.iconfinder.com/data/icons/hotel-icons-rounded/110/Refrigerator-512.png'
     }
     this.onPressSubmit = this.onPressSubmit.bind(this);
     // this.onPressScan = this.onPressScan.bind(this);

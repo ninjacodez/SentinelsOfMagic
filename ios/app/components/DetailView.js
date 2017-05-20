@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { Button, Card } from 'react-native-material-design';
 import Header from './Header';
 import axios from 'axios';
+import styles from '../style';
+
 
 const SERVER_URL = 'https://fridgr-mobile.herokuapp.com';
 
@@ -17,7 +20,8 @@ class DetailView extends React.Component {
       needToRestock: data.needtorestock,
       username: data.username,
       userId: this.props.screenProps.userId,
-      itemUserId: data.userid
+      itemUserId: data.userid,
+      image: data.image
     };
     this.handleRestockItem = this.handleRestockItem.bind(this);
     this.handleClaimItem = this.handleClaimItem.bind(this);
@@ -104,7 +108,7 @@ class DetailView extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>{'id: ' + this.state.id}</Text>
         <Text>{'name: ' + this.state.name}</Text>
         <Text>{'notes: ' + this.state.notes}</Text>
@@ -112,40 +116,52 @@ class DetailView extends React.Component {
         <Text>{'username: ' + this.state.username}</Text>
         <Text>{'userid: ' + this.state.userId}</Text>
         <Text>{'itemUserId: ' + this.state.itemUserId}</Text>
+        <Text>{'image: ' + this.state.image}</Text>
+        <Image style={{
+          width: 150,
+          height: 150,
+          alignSelf: 'center',
+          marginBottom: 20
+        }} source={{
+          uri: this.state.image
+        }}/>
 
-        {!this.state.needToRestock && <Button style={styles.button}
-          onPress={this.handleRestockItem}
-          title="Need to Restock"
-          color="#841584"
+        {!this.state.needToRestock &&
+          <Button
+            onPress={this.handleRestockItem}
+            overrides={{textColor: '#ffffff', backgroundColor: '#f37735'}}
+            text="Need to Restock"
+            raised={true}
         />}
-        {(this.state.needToRestock && !this.state.username) ? <Button style={styles.button}
-          onPress={this.handleClaimItem}
-          title="Claim"
-          color="#841584"
-        /> : <Button style={styles.button}
-          onPress={this.handleUnclaimItem}
-          title="Unclaim"
-          color="#841584"
+        {(this.state.needToRestock && !this.state.username) ?
+          <Button
+            onPress={this.handleClaimItem}
+            overrides={{textColor: '#ffffff', backgroundColor: '#00b159'}}
+            text="Claim"
+            raised={true}
+        /> : <Button
+            onPress={this.handleUnclaimItem}
+            overrides={{textColor: '#ffffff', backgroundColor: '#ffc425'}}
+            text="Unclaim"
+            raised={true}
         /> }
-        {this.state.needToRestock && !this.state.username && <Button style={styles.button}
-          onPress={this.handleUndoItem}
-          title="Undo"
-          color="#841584"
+        {this.state.needToRestock && !this.state.username &&
+          <Button
+            onPress={this.handleUndoItem}
+            overrides={{textColor: '#ffffff', backgroundColor: '#f37735'}}
+            text="Undo"
+            raised={true}
         />}
-        {this.state.needToRestock && !this.state.username && <Button style={styles.button}
-          onPress={this.handleDeleteItem}
-          title="Delete"
-          color="#841584"
+        {this.state.needToRestock && !this.state.username &&
+          <Button
+            onPress={this.handleDeleteItem}
+            overrides={{textColor: '#ffffff', backgroundColor: '#d11141'}}
+            text="Delete"
+            raised={true}
         />}
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  button: {
-    flex: 1,
-  },
-});
 
 export default DetailView;

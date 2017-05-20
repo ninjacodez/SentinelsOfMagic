@@ -34,7 +34,7 @@ class Login extends Component {
       password: password
     })
     .then((response) => {
-      console.log(response.data);
+      console.log('#######', response.data);
       if (response) {
         const userArray = response.data.userData;
         const houseId = response.data.houseId;

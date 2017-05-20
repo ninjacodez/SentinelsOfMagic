@@ -2,6 +2,7 @@ import React from 'react';
 import { ListView, Text, View, StyleSheet } from 'react-native';
 import Row from './Row';
 import Header from './Header';
+import styles from '../style';
 
 import spoonSampleData from '../spoonSampleData';
 import dummyData from '../../../database/dummyData.js';
@@ -35,7 +36,7 @@ class InventoryListView extends React.Component {
   render() {
     return (
         <ListView
-          style={styles.container}
+          style={styles.listView}
           dataSource={this.state.dataSource}
           renderRow={(data) => (
             <Row
@@ -46,35 +47,11 @@ class InventoryListView extends React.Component {
             />
           )}
           renderSeparator={this.renderSeparator}
-          renderHeader={() => <Header headerTitle={this.props.headerTitle}/>}
+          // renderHeader={() => <Header />}
         />
     );
   }
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 0,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#F6F6F6',
-  },
-  thumb: {
-    width: 64,
-    height: 64,
-  },
-  text: {
-    flex: 1,
-  },
-  separator: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  }
-});
 
 export default InventoryListView;

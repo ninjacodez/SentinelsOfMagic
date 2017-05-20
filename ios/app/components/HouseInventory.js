@@ -42,14 +42,7 @@ class HouseInventory extends React.Component {
   componentDidMount() {
     this.getItems();
   }
-  // componentWillReceiveProps(props) {
-  //   this.getItems();
-  // }
-
-  // componentsDidUpdate() {
-  //   this.getItems();
-  // }
-
+  
   render() {
     return (
       <InventoryListView
@@ -69,14 +62,5 @@ const styles = StyleSheet.create({
     height: 26,
   },
 });
-
-// const styles = StyleSheet.create({
-//   bigblue: {
-//     color: 'blue',
-//     fontWeight: 'bold',
-//     fontSize: 30,
-//     textAlign: 'center'
-//   }
-// });
 
 export default HouseInventory;

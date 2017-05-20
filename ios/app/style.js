@@ -69,6 +69,28 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 10,
+  },
+  listView: {
+    flex: 1,
+    marginTop: 0,
+    backgroundColor: '#00aedb',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: 10,
+    backgroundColor: '#F6F6F6',
+  },
+  thumb: {
+    width: 64,
+    height: 64,
+  },
+  text: {
+    flex: 1,
+  },
+  separator: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
   }
 });
 

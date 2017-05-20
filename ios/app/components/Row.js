@@ -2,6 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight, Navigator } from 'react-native';
 
 const styles = StyleSheet.create({
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#ffc425',
+  },
   container: {
     flex: 1,
     padding: 12,
@@ -30,7 +37,7 @@ class Row extends React.Component {
     // const {navigate} = this.props.navigation;
     return (
       <TouchableHighlight onPress={() => this.props.navigation.navigate('Detail', { data: this.props })}>
-        <View style={styles.container}>
+        <View style={styles.row}>
           <Image source={{uri: this.props.image}} style={styles.photo}/>
           <Text style={styles.text}>
             {this.props.name}
