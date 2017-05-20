@@ -2,7 +2,7 @@
   "name": "fridgr",
   "displayName": "fridgr",
   "scripts": {
-    "heroku-postbuild": "psql --app ENV["APP_NAME"] < database/fridgr.sql"
+
   },
   "env": {
   },
