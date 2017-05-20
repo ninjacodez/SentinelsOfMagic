@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  header: {
+    fontSize: 10,
+  }
 });
 
 export default styles;
