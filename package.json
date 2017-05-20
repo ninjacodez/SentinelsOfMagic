@@ -14,7 +14,7 @@
     "server-dev": "nodemon server/index.js",
     "ios-dev": "react-native run-ios",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
-    "circle-build": "webpack -d --config web/webpack.config.js",
+    "circle-build": "webpack -d --config ./webpack.config.js",
     "test": "mocha spec/serverSpec.js"
   },
   "dependencies": {
