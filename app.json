@@ -2,6 +2,7 @@
   "name": "fridgr",
   "displayName": "fridgr",
   "scripts": {
+    "heroku-postbuild": "psql -d DATABASE_URL -f database/fridgr.sql"
   },
   "env": {
   },
