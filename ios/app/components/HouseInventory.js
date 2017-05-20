@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image, } from 'react-native';
 import axios from 'axios';
-
 import InventoryListView from './InventoryListView';
 import dummyData from '../../../database/dummyData.js';
 
