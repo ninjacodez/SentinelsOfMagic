@@ -49,6 +49,16 @@ class HouseInventoryNavigator extends React.Component {
     )
   };
 
+  static navigationOptions = {
+    tabBarLabel: 'House Inventory',
+    tabBarIcon: ({ tintColor }) => (
+      <Image
+        source={require('../img/fridge-icon.png')}
+        style={[styles.icon, {tintColor: tintColor}]}
+      />
+    )
+  };
+
   render() {
     const HINavigator = StackNavigator({
       List: { screen: HouseInventory },
