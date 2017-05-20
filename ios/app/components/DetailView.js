@@ -21,6 +21,7 @@ class DetailView extends React.Component {
     };
     this.handleRestockItem = this.handleRestockItem.bind(this);
     this.handleClaimItem = this.handleClaimItem.bind(this);
+    this.handleUnclaimItem = this.handleUnclaimItem.bind(this);
     this.handleUndoItem = this.handleUndoItem.bind(this);
     this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
@@ -56,7 +57,7 @@ class DetailView extends React.Component {
       .catch(err => console.log('Bad POST request to /claim: ', err));
   }
 
-  handleUndoItem() {
+  handleUnclaimItem() {
     const { data } = this.props.navigation.state.params;
     console.log('************ UNDO ************', data.name);
     axios.post(SERVER_URL + '/unclaim', { itemId: this.state.id })
@@ -64,6 +65,18 @@ class DetailView extends React.Component {
         console.log('Successful POST request to /unclaim');
         this.setState({
           username: null,
+        }, () => {
+          data.getItems();
+        });
+      })
+      .catch(err => console.log('Bad POST request to /unclaim'));
+  }
+
+  handleUndoItem() {
+    axios.post('/undo', { itemId: this.state.id })
+      .then(res => {
+        console.log('Successful POST request to /unclaim');
+        this.setState({
           needToRestock: false,
         }, () => {
           data.getItems();
@@ -74,7 +87,7 @@ class DetailView extends React.Component {
 
   handleDeleteItem() {
     const { data } = this.props.navigation.state.params;
-    const { navigate, goBack } = this.props.navigation;
+    const { goBack } = this.props.navigation;
     console.log('************ DELETE ************', data.name);
     axios.post(SERVER_URL + '/delete', { itemId: this.state.id })
       .then(res => {
@@ -89,29 +102,35 @@ class DetailView extends React.Component {
 
   render() {
     return (
-      <View renderHeader={() => <Header headerTitle={this.state.name} />}>
+      <View>
         <Text>{'id: ' + this.state.id}</Text>
         <Text>{'name: ' + this.state.name}</Text>
-        <Text>{'needtorestock: ' + this.state.needToRestock}</Text>
         <Text>{'notes: ' + this.state.notes}</Text>
+        <Text>{'needtorestock: ' + this.state.needToRestock}</Text>
+        <Text>{'username: ' + this.state.username}</Text>
         <Text>{'userid: ' + this.state.userId}</Text>
-        <Text>{'claim username: ' + this.state.username}</Text>
+        <Text>{'itemUserId: ' + this.state.itemUserId}</Text>
+
         {!this.state.needToRestock && <Button style={styles.button}
           onPress={this.handleRestockItem}
           title="Need to Restock"
           color="#841584"
         />}
-        {this.state.needToRestock && <Button style={styles.button}
+        {(this.state.needToRestock && !this.state.username) ? <Button style={styles.button}
           onPress={this.handleClaimItem}
           title="Claim"
           color="#841584"
-        />}
-        {this.state.needToRestock && <Button style={styles.button}
+        /> : <Button style={styles.button}
+          onPress={this.handleUnclaimItem}
+          title="Unclaim"
+          color="#841584"
+        /> }
+        {this.state.needToRestock && !this.state.username && <Button style={styles.button}
           onPress={this.handleUndoItem}
           title="Undo"
           color="#841584"
         />}
-        {this.state.needToRestock && <Button style={styles.button}
+        {this.state.needToRestock && !this.state.username && <Button style={styles.button}
           onPress={this.handleDeleteItem}
           title="Delete"
           color="#841584"
