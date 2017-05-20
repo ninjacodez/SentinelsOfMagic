@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Button, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import axios from 'axios';
@@ -48,46 +48,48 @@ class SignUp extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.loading}>
-          Sign Up
-        </Text>
-        <TextField
-          label="House Name"
-          textColor="#ffffff"
-          tintColor="#ffffff"
-          onChangeText={(houseName) => this.setState({houseName})}
-          value={this.state.houseName}
-          autoCorrect={false}
-          error={this.state.error}
-        />
-        <TextField
-          label="Password"
-          textColor="#ffffff"
-          tintColor="#ffffff"
-          onChangeText={(password) => this.setState({password})}
-          autoCorrect={false}
-          autoCapitalize="none"
-          secureTextEntry={true}
-          error={this.state.error}
-        />
-        <View style={styles.button}>
-          <Button
-            onPress={this.onPressSubmit}
-            overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
-            text="Sign Up"
-            raised={true}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.loading}>
+            Sign Up
+          </Text>
+          <TextField
+            label="House Name"
+            textColor="#ffffff"
+            tintColor="#ffffff"
+            onChangeText={(houseName) => this.setState({houseName})}
+            value={this.state.houseName}
+            autoCorrect={false}
+            error={this.state.error}
           />
-        </View>
-        <View style={styles.button}>
-          <Button
-            onPress={this.onPressLogin}
-            overrides={{textColor: '#ffffff', backgroundColor:'#ffc425'}}
-            text="Go Back to Login"
-            raised={true}
+          <TextField
+            label="Password"
+            textColor="#ffffff"
+            tintColor="#ffffff"
+            onChangeText={(password) => this.setState({password})}
+            autoCorrect={false}
+            autoCapitalize="none"
+            secureTextEntry={true}
+            error={this.state.error}
           />
+          <View style={styles.button}>
+            <Button
+              onPress={this.onPressSubmit}
+              overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
+              text="Sign Up"
+              raised={true}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              onPress={this.onPressLogin}
+              overrides={{textColor: '#ffffff', backgroundColor:'#ffc425'}}
+              text="Go Back to Login"
+              raised={true}
+            />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

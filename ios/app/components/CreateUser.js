@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Button, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
@@ -88,43 +88,45 @@ class CreateUser extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Add New User
-        </Text>
-        <TextField
-          onChangeText={(username) => this.setState({username: username, message: null})}
-          textColor="#ffffff"
-          tintColor="#ffffff"
-          label="What's your name?"
-          error={this.state.message}
-          errorColor={this.state.errorColor}
-          value={this.state.username}
-          autoCorrect={false}
-        />
-        <View style={styles.button}>
-          <Button
-            onPress={this.onPressSubmit}
-            overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
-            text="Create User"
-            raised={true}
-          />
-        </View>
-        <View style={{marginTop: 50}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
           <Text style={styles.welcome}>
-            Select Existing User
+            Add New User
           </Text>
-        </View>
-        <View style={styles.center}>
-          <ModalDropdown
-            dropdownStyle={styles.dropdown}
-            style={styles.buttonStyle}
-            textStyle={styles.textStyle}
-            options={this.state.userArray}
-            onSelect={this.onPressUser}
+          <TextField
+            onChangeText={(username) => this.setState({username: username, message: null})}
+            textColor="#ffffff"
+            tintColor="#ffffff"
+            label="What's your name?"
+            error={this.state.message}
+            errorColor={this.state.errorColor}
+            value={this.state.username}
+            autoCorrect={false}
           />
+          <View style={styles.button}>
+            <Button
+              onPress={this.onPressSubmit}
+              overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
+              text="Create User"
+              raised={true}
+            />
+          </View>
+          <View style={{marginTop: 50}}>
+            <Text style={styles.welcome}>
+              Select Existing User
+            </Text>
+          </View>
+          <View style={styles.center}>
+            <ModalDropdown
+              dropdownStyle={styles.dropdown}
+              style={styles.buttonStyle}
+              textStyle={styles.textStyle}
+              options={this.state.userArray}
+              onSelect={this.onPressUser}
+            />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }

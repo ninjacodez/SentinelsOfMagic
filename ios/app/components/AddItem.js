@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Image, Button } from 'react-native';
+import { Text, View, TextInput, Image, Button, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Button as MDButton, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
@@ -120,34 +120,36 @@ class AddItem extends Component {
     : ( <View></View> ));
 
     return (
-      <View style={styles.container}>
-        {image}
-        <Text style={styles.welcome}>
-          Add New Item
-        </Text>
-        <TextField
-          label="New Item"
-          textColor="#ffffff"
-          tintColor="#ffffff"
-          onChangeText={(name) => this.setState({name})}
-          value={this.state.name}
-          autoCorrect={false}
-        />
-        <TextField
-          label="Notes"
-          textColor="#ffffff"
-          tintColor="#ffffff"
-          multiline={true}
-          onChangeText={(notes) => this.setState({notes})}
-          value={this.state.notes}
-        />
-        <MDButton
-          onPress={this.onPressSubmit}
-          overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
-          text="Submit"
-          raised={true}
-        />
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          {image}
+          <Text style={styles.welcome}>
+            Add New Item
+          </Text>
+          <TextField
+            label="New Item"
+            textColor="#ffffff"
+            tintColor="#ffffff"
+            onChangeText={(name) => this.setState({name})}
+            value={this.state.name}
+            autoCorrect={false}
+          />
+          <TextField
+            label="Notes"
+            textColor="#ffffff"
+            tintColor="#ffffff"
+            multiline={true}
+            onChangeText={(notes) => this.setState({notes})}
+            value={this.state.notes}
+          />
+          <MDButton
+            onPress={this.onPressSubmit}
+            overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}
+            text="Submit"
+            raised={true}
+          />
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
