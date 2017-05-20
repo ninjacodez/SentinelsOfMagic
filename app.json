@@ -2,13 +2,14 @@
   "name": "fridgr",
   "displayName": "fridgr",
   "scripts": {
+    "postdeploy": "pg:psql < ./database/fridgr.sql"
   },
   "env": {
   },
   "formation": {
   },
   "addons": [
-
+    "heroku-postgresql:hobby-dev"
   ],
   "buildpacks": [
     {
