@@ -67,6 +67,8 @@ class SignUp extends Component {
           tintColor="#ffffff"
           onChangeText={(password) => this.setState({password})}
           autoCorrect={false}
+          autoCapitalize="none"
+          secureTextEntry={true}
           error={this.state.error}
         />
         <View style={styles.button}>
