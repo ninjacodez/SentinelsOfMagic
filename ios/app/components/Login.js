@@ -56,7 +56,7 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        <Text style={styles.loading}>
           Login
         </Text>
         <TextField
