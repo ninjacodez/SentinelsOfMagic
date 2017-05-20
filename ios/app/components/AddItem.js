@@ -30,7 +30,7 @@ class AddItem extends Component {
       notes: '',
       errorName: '',
       errorText: '',
-      image: "https://lh3.googleusercontent.com/YGqr3CRLm45jMF8eM8eQxc1VSERDTyzkv1CIng0qjcenJZxqV5DBgH5xlRTawnqNPcOp=w300"
+      image: ''
     }
     this.onPressSubmit = this.onPressSubmit.bind(this);
     // this.onPressScan = this.onPressScan.bind(this);
@@ -112,7 +112,8 @@ class AddItem extends Component {
     const image = this.state.image?
     (<Image style={{
       width: 200,
-      height: 200
+      height: 200,
+      alignSelf: 'center'
     }} source={{
       uri: this.state.image
     }}/> )

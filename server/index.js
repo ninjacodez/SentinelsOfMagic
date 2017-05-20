@@ -230,7 +230,7 @@ app.post('/add', (req, res) => {
         db.query('INSERT INTO houses_items (house_id, item_id, need_to_restock, notes, image) VALUES (${houseId#}, ${itemId#}, ${needToRestock^}, ${notes}, ${image})',
           { houseId: req.body.houseId, itemId: body[0].id, needToRestock: false, notes: req.body.notes, image: req.body.image })
           .then(() => {
-            console.log(`Successful insert into HOUSES_ITEMS table: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}}`);
+            // console.log(`Successful insert into HOUSES_ITEMS table: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}}`);
             res.sendStatus(201);
           })
           .catch(err => console.log(`Unable to add item to HOUSES_ITEMS table: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}} `, err));
@@ -238,14 +238,14 @@ app.post('/add', (req, res) => {
       }
       db.query('INSERT INTO items (itemname) VALUES (${name})', { name: req.body.name })
         .then(() => {
-          console.log(`Successfully inserted ${req.body.name} into ITEMS table`);
+          // console.log(`Successfully inserted ${req.body.name} into ITEMS table`);
           db.query('SELECT id FROM items WHERE itemname = ${name}', { name: req.body.name })
           .then(body => {
-            console.log(`Successful retrieve of item id = ${body[0].id} for itemname = ${req.body.name} from ITEMS`);
+            // console.log(`Successful retrieve of item id = ${body[0].id} for itemname = ${req.body.name} from ITEMS`);
             db.query('INSERT INTO houses_items (house_id, item_id, need_to_restock, notes, image) VALUES (${houseId#}, ${itemId#}, ${needToRestock^}, ${notes}, ${image})',
               { houseId: req.body.houseId, itemId: body[0].id, needToRestock: false, notes: req.body.notes, image: req.body.image })
               .then(() => {
-                console.log(`Successful insert into HOUSES_ITEMS: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}}, image: ${req.body.image}`);
+                // console.log(`Successful insert into HOUSES_ITEMS: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}}, image: ${req.body.image}`);
                 res.sendStatus(201);
               })
               .catch(err => console.log(`Unable to add to HOUSES_ITEMS table: {houseId: ${req.body.houseId}, itemId: ${body[0].id}, needToRestock: false, notes: ${req.body.notes}} `, err));
