@@ -64,9 +64,9 @@ class UserShoppingList extends React.Component {
     this.getShoppingList();
   }
 
-  componentWillReceiveProps(props) {
-    this.getShoppingList();
-  }
+  // componentWillReceiveProps(props) {
+  //   this.getShoppingList();
+  // }
 
   render() {
     return (

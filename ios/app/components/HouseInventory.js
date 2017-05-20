@@ -51,6 +51,7 @@ class HouseInventory extends React.Component {
   // componentsDidUpdate() {
   //   this.getItems();
   // }
+  
   render() {
     return (
       <InventoryListView
