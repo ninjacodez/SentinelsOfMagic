@@ -133,18 +133,23 @@ class DetailView extends React.Component {
             text="Need to Restock"
             raised={true}
         />}
-        {(this.state.needToRestock && !this.state.username) ?
+        {(this.state.needToRestock && !this.state.username) &&
           <Button
             onPress={this.handleClaimItem}
             overrides={{textColor: '#ffffff', backgroundColor: '#00b159'}}
             text="Claim"
             raised={true}
-        /> : <Button
-            onPress={this.handleUnclaimItem}
-            overrides={{textColor: '#ffffff', backgroundColor: '#ffc425'}}
-            text="Unclaim"
-            raised={true}
-        /> }
+          />
+        }
+
+        {(this.state.needToRestock && this.state.username) &&
+          <Button
+              onPress={this.handleUnclaimItem}
+              overrides={{textColor: '#ffffff', backgroundColor: '#ffc425'}}
+              text="Unclaim"
+              raised={true}
+          />
+        }
         {this.state.needToRestock && !this.state.username &&
           <Button
             onPress={this.handleUndoItem}

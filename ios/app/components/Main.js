@@ -34,7 +34,7 @@ class Main extends React.Component {
       HouseInventory: { screen: HouseInventoryNavigator },
       UserShoppingList: { screen: UserShoppingListNavigator },
       SettingNavigator: { screen: SettingNavigator },
-    });
+    }, {lazy: true});
     console.log(state.routeName);
     return (
       <TabNav screenProps={screenProps} />

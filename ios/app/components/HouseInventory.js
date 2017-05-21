@@ -35,7 +35,8 @@ class HouseInventory extends React.Component {
     axios.post(config.WEB_SERVER_URL + '/inventory', this.props.screenProps )
     .then(res => {
       console.log('Successful POST request to /inventory - house inventory items retrieved', res.data);
-      this.setState({items: res.data}, console.log('state^^^^^^^^^^^^', this.state));
+      const sortedData = res.data.sort((a, b) => a.id - b.id);
+      this.setState({items: sortedData}, console.log('state^^^^^^^^^^^^', this.state.items));
     })
     .catch(err => console.log('Unsuccessful POST request to /inventory - unable to retrieve house inventory items: ', err));
   }
