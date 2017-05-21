@@ -116,7 +116,7 @@ class Row extends React.Component {
           needtorestock: false,
         }, () => {
           this.props.getItems();
-          this.props.screenProps.forceRenderInMain();
+          // this.props.screenProps.forceRenderInMain();
         });
       })
       .catch(err => console.log('Bad POST request to /unclaim'));

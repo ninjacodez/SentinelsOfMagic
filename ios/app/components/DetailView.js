@@ -28,16 +28,16 @@ class DetailView extends React.Component {
 
   render() {
     const { data } = this.props.navigation.state.params;
+    // <Text>{'id: ' + data.id}</Text>
+    // <Text>{'name: ' + data.name}</Text>
+    // <Text>{'notes: ' + data.notes}</Text>
+    // <Text>{'needtorestock: ' + data.needToRestock}</Text>
+    // <Text>{'username: ' + data.username}</Text>
+    // <Text>{'userid: ' + data.userId}</Text>
+    // <Text>{'itemUserId: ' + data.itemUserId}</Text>
+    // <Text>{'image: ' + data.image}</Text>
     return (
       <View style={styles.container}>
-        <Text>{'id: ' + data.id}</Text>
-        <Text>{'name: ' + data.name}</Text>
-        <Text>{'notes: ' + data.notes}</Text>
-        <Text>{'needtorestock: ' + data.needtorestock}</Text>
-        <Text>{'username: ' + data.username}</Text>
-        <Text>{'userid: ' + data.userId}</Text>
-        <Text>{'itemUserId: ' + data.itemUserId}</Text>
-        <Text>{'image: ' + data.image}</Text>
         <Image style={{
           width: 150,
           height: 150,
