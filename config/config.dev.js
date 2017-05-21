@@ -5,5 +5,5 @@ module.exports = {
   },
   GOOGLE_API_KEY: 'AIzaSyBJsGGirakhxDSWTCP8Tv6M2ohPL5TSPtE',
   BING_API_KEY: '2030f380ae1448e08399595778111ed2',
-  WEB_SERVER_URL: 'http://localhost:8080'
+  WEB_SERVER_URL: 'https://fridgr-mobile.herokuapp.com'
 };
