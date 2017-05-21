@@ -1,23 +1,26 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight, Navigator } from 'react-native';
+// import styles from '../style';
 
 const styles = StyleSheet.create({
-  container: {
+  row: {
     flex: 1,
-    padding: 12,
     flexDirection: 'row',
     alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#00b159',
   },
-  containerHighlighted: {
+  rowHighlighted: {
     flex: 1,
-    padding: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#527FE4',
+    padding: 10,
+    backgroundColor: '#d11141',
   },
   text: {
     marginLeft: 12,
-    fontSize: 16,
+    fontSize: 18,
+    color: '#ffffff'
   },
   photo: {
     height: 40,
@@ -31,7 +34,7 @@ class ShoppingListRow extends React.Component {
     super(props);
     this.state = {
       isHighlighted: false,
-    }
+    };
   }
 
   render() {
@@ -41,7 +44,7 @@ class ShoppingListRow extends React.Component {
         this.props.handleClickRow(this.props, this.state.isHighlighted);
         this.setState({isHighlighted: !this.state.isHighlighted});
       }}>
-        <View style={this.state.isHighlighted ? styles.containerHighlighted : styles.container}>
+        <View style={this.state.isHighlighted ? styles.rowHighlighted : styles.row}>
           <Image source={{uri: this.props.image}} style={styles.photo}/>
           <Text style={styles.text}>
             {'item: ', this.props.houses_items_id, ', id - ', this.props.id, ', name - ', this.props.itemname}

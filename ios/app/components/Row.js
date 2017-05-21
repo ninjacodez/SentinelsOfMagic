@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: '#ffc425',
+    backgroundColor: '#f37735',
   },
   container: {
     flex: 1,
@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
   },
   text: {
     marginLeft: 12,
-    fontSize: 16,
+    fontSize: 18,
+    color: '#ffffff'
   },
   photo: {
     height: 40,
