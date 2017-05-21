@@ -30,6 +30,7 @@ class ShoppingListView extends React.Component {
   }
 
   render() {
+    debugger;
     return (
         <ListView
           style={styles.container}

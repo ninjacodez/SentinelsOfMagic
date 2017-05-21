@@ -44,6 +44,7 @@ class InventoryListView extends React.Component {
               navigation={this.props.navigation}
               getItems={this.props.getItems}
               screenProps={this.props.screenProps}
+              removeClippedSubViews={false}
             />
           )}
           renderSeparator={this.renderSeparator}
