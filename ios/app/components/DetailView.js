@@ -5,7 +5,6 @@ import Header from './Header';
 import axios from 'axios';
 import styles from '../style';
 
-
 const SERVER_URL = 'https://fridgr-mobile.herokuapp.com';
 
 class DetailView extends React.Component {
