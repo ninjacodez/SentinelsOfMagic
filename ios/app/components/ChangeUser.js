@@ -6,6 +6,7 @@ import { TextField } from 'react-native-material-textfield';
 import axios from 'axios';
 import ModalDropdown from 'react-native-modal-dropdown';
 import styles from '../style';
+import config from '../../../config/index.js';
 
 class ChangeUser extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class ChangeUser extends Component {
   componentDidMount() {
     const { navigate } = this.props.navigation;
 
-    axios.post('https://fridgr-mobile.herokuapp.com/users', this.props.screenProps)
+    axios.post(config.WEB_SERVER_URL + '/users', this.props.screenProps)
     .then((response) => {
       if (response && response.data.length > 0) {
         console.log('success@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', response.data);

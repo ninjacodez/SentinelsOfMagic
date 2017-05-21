@@ -5,6 +5,7 @@ import { TextField } from 'react-native-material-textfield';
 import axios from 'axios';
 import CreateUser from './CreateUser';
 import styles from '../style';
+import config from '../../../config/index.js';
 
 class SignUp extends Component {
 
@@ -32,7 +33,7 @@ class SignUp extends Component {
     const houseName = this.state.houseName;
     const password = this.state.password;
 
-    axios.post('https://fridgr-mobile.herokuapp.com/auth/signup', {
+    axios.post(config.WEB_SERVER_URL + '/auth/signup', {
       houseName: houseName,
       password: password
     })

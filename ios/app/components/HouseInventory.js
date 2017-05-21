@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Image, } from 'react-native';
 import axios from 'axios';
 import InventoryListView from './InventoryListView';
 import dummyData from '../../../database/dummyData.js';
+import config from '../../../config/index.js';
 
 class HouseInventory extends React.Component {
 
@@ -31,7 +32,7 @@ class HouseInventory extends React.Component {
   }
 
   getItems() {
-    axios.post('https://fridgr-mobile.herokuapp.com/inventory', this.props.screenProps )
+    axios.post(config.WEB_SERVER_URL + '/inventory', this.props.screenProps )
     .then(res => {
       console.log('Successful POST request to /inventory - house inventory items retrieved', res.data);
       this.setState({items: res.data}, console.log('state^^^^^^^^^^^^', this.state));
