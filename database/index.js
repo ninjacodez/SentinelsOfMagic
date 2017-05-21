@@ -3,4 +3,3 @@ let pgp = require('pg-promise')(); // initialization option was {ssl: true}, sor
 let connection = process.env.DATABASE_URL || require('./config');
 
 module.exports = pgp(connection);
-

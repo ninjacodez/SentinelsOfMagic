@@ -30,6 +30,8 @@ class Login extends Component {
     const houseName = this.state.houseName;
     const password = this.state.password;
 
+    console.log(config.WEB_SERVER_URL);
+
     axios.post(config.WEB_SERVER_URL + '/auth/login', {
       houseName: houseName,
       password: password
