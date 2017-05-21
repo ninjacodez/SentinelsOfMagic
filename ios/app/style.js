@@ -29,11 +29,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontFamily: 'DamascusBold',
     fontSize: 20,
-    textAlign: 'center',
     margin: 10,
   },
   button: {
-    textAlign: 'center',
+    // textAlign: 'center',
     color: '#333333',
     paddingHorizontal: 40,
   },
