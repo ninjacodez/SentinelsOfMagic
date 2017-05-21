@@ -1,0 +1,11 @@
+// FILL IN WITH KEYS
+
+module.exports = {
+  NUTRITIONIX_API: {
+    ID: 'FILL_ME_IN',
+    KEY: 'FILL_ME_IN'
+  },
+  GOOGLE_API_KEY: 'FILL_ME_IN',
+  BING_API_KEY: 'FILL_ME_IN',
+  WEB_SERVER_URL: 'FILL_ME_IN'
+};

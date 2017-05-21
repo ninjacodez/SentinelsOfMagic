@@ -4,13 +4,14 @@ import axios from 'axios';
 
 import ShoppingListView from './ShoppingListView';
 import dummyUserData from '../../../database/dummyUserData.js';
+import config from '../../../config/index.js';
 
 class UserShoppingList extends React.Component {
 
   static navigationOptions = ({ navigation, screenProps }) => {
 
     const removeFromShoppingList = () => {
-      axios.post('https://fridgr-mobile.herokuapp.com/removeFromShoppingList',
+      axios.post(config.WEB_SERVER_URL + '/removeFromShoppingList',
       {...screenProps, data: navigation.state.params.selectedItems})
       .then(res => {
         return navigation.setParams({
@@ -48,7 +49,7 @@ class UserShoppingList extends React.Component {
   }
 
   getShoppingList() {
-    axios.post('https://fridgr-mobile.herokuapp.com/shoppingList', this.props.screenProps)
+    axios.post(config.WEB_SERVER_URL + '/shoppingList', this.props.screenProps)
     .then(res => {
       this.props.navigation.setParams({shoppingListItems: res.data});
     })
