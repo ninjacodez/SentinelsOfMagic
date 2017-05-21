@@ -40,6 +40,7 @@ class ShoppingListView extends React.Component {
               navigation={this.props.navigation}
               handleClickRow={this.props.handleClickRow}
               screenProps={this.props.screenProps}
+              removeClippedSubViews={false}
             />
           )}
           renderSeparator={this.renderSeparator}
