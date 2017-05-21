@@ -6,6 +6,7 @@ import Main from './Main';
 import axios from 'axios';
 import ModalDropdown from 'react-native-modal-dropdown';
 import styles from '../style';
+import config from '../../../config/index.js';
 
 class CreateUser extends Component {
 
@@ -47,7 +48,7 @@ class CreateUser extends Component {
 
     const username = this.state.username;
 
-    axios.post('https://fridgr-mobile.herokuapp.com/createUser', {
+    axios.post(config.WEB_SERVER_URL + '/createUser', {
       userName: username,
       houseId: this.state.houseId
     })

@@ -4,6 +4,7 @@ import { Button, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import axios from 'axios';
 import styles from '../style';
+import config from '../../../config/index.js';
 
 class Login extends Component {
 
@@ -29,7 +30,7 @@ class Login extends Component {
     const houseName = this.state.houseName;
     const password = this.state.password;
 
-    axios.post('https://fridgr-mobile.herokuapp.com/auth/login', {
+    axios.post(config.WEB_SERVER_URL + '/auth/login', {
       houseName: houseName,
       password: password
     })

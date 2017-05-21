@@ -7,6 +7,7 @@ let path = require('path');
 var cookieParser = require('cookie-parser');
 var utils = require('./lib/inventoryUtils.js');
 var assignCookie = require('./middleware/assignCookie');
+var API = require('./lib/apiHelper.js');
 
 let checkAuth = require('./middleware/authorizedRequest.js');
 
@@ -201,6 +202,16 @@ app.post('/cookUser', function(req, res) {
     });
   })
   .catch( err=> console.log('unable to pass cookies', err));
+});
+
+app.post('/itemLookup', function(req, res) {
+  API.getUPC(req.query.upc)
+  .then((dataObj) => {
+    res.status(200).send(dataObj);
+  })
+  .catch((err) => {
+    res.status(400).send('ERROR: ', err);
+  })
 });
 
 app.post('/users', function(req, res) {
