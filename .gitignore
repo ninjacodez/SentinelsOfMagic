@@ -28,6 +28,9 @@ web/client/dist/bundle.js
 # Database access credentials
 database/config.js
 
+# dev API keys
+config/config.dev.js
+
 # Dependency directories
 # Deployed apps should consider commenting these lines out:
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git

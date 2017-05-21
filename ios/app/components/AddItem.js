@@ -73,7 +73,7 @@ class AddItem extends Component {
       method: 'post',
       url: config.WEB_SERVER_URL + '/itemLookup',
       params: {
-        upc: 813700020151
+        upc: upc
       }
     }).then((data) => {
       return this.setState({
