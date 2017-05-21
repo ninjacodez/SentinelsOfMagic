@@ -4,8 +4,9 @@ import { Button, Card } from 'react-native-material-design';
 import Header from './Header';
 import axios from 'axios';
 import styles from '../style';
+import config from '../../../config/index.js';
 
-const SERVER_URL = 'https://fridgr-mobile.herokuapp.com';
+const SERVER_URL = config.WEB_SERVER_URL;
 
 class DetailView extends React.Component {
 

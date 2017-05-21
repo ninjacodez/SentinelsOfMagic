@@ -5,6 +5,7 @@ import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
 import axios from 'axios';
 import styles from '../style';
+import config from '../../../config/index.js';
 
 class AddItem extends Component {
   static navigationOptions = ({ navigation, screenProps }) => {
@@ -50,7 +51,7 @@ class AddItem extends Component {
       userId: userId
     };
 
-    axios.post('https://fridgr-mobile.herokuapp.com/add', params)
+    axios.post(config.WEB_SERVER_URL + '/add', params)
     .then(res => {
       this.props.screenProps.getItems();
     })
@@ -66,42 +67,19 @@ class AddItem extends Component {
     });
   }
 
-  // onPressScan() {
-  //   const { navigate } = this.props.navigation;
-  //   this.props.screenProps.searchUPC = this.searchUPC;
-  //   navigate('Camera', this.props.screenProps);
-  // }
-
   searchUPC(upc) {
     console.log('from searchUPC', upc);
     return axios({
-      method: 'get',
-      url: 'https://api.nutritionix.com/v1_1/item',
+      method: 'post',
+      url: config.WEB_SERVER_URL + '/itemLookup',
       params: {
-        upc: upc,
-        appId: '3d831dc9',
-        appKey: 'f3f39a4633abc4da66cf018f2c84c8f6'
+        upc: 813700020151
       }
-    }).then((foodObj) => {
-      console.log('name: ', foodObj.data.item_name)
-      axios({
-        method: 'get',
-        url: 'https://api.cognitive.microsoft.com/bing/v5.0/search',
-        params: {
-          q: foodObj.data.item_name,
-          count: 1
-        },
-        headers: {
-          'Ocp-Apim-Subscription-Key': '2030f380ae1448e08399595778111ed2'
-        }
-      }).then((imageObj) => {
-        return this.setState({
-          name: foodObj.data.item_name,
-          image: imageObj.data.images.value[0].contentUrl,
-          notes: 'Brand name: ' + foodObj.data.brand_name,
-        });
-      }).catch((err) => {
-        console.log('ERROR: ', err);
+    }).then((data) => {
+      return this.setState({
+        name: data.data.name,
+        image: data.data.image,
+        notes: 'Brand: ' + data.data.notes
       });
     }).catch((err) => {
       console.log('ERROR: ', err);

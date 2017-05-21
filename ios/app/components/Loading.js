@@ -26,12 +26,9 @@ class Loading extends Component {
     return (
       <View style={styles.container}>
         <Image
-          style={{width: 260, height: 260, alignSelf:"center"}}
-          source={require('../img/fridge-and-cat.png')}
+          style={{width: 300, height: 300, alignSelf:"center"}}
+          source={require('../img/fridge-and-cat-icon.png')}
         />
-        <Text style={styles.loading}>
-          Fridgr
-        </Text>
         <View style={styles.button}>
           <Button
             onPress={this.onPressLogin}
