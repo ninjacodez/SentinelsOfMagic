@@ -2,6 +2,7 @@ import React from 'react';
 import { ListView, Text, View, StyleSheet } from 'react-native';
 import ShoppingListRow from './ShoppingListRow';
 import Header from './Header';
+import styles from '../style';
 
 class ShoppingListView extends React.Component {
 
@@ -33,7 +34,7 @@ class ShoppingListView extends React.Component {
     debugger;
     return (
         <ListView
-          style={styles.container}
+          style={styles.listView}
           dataSource={this.state.dataSource}
           renderRow={(data) => (
             <ShoppingListRow
@@ -45,34 +46,34 @@ class ShoppingListView extends React.Component {
             />
           )}
           renderSeparator={this.renderSeparator}
-          renderHeader={() => <Header headerTitle={this.props.headerTitle}/>}
+          // renderHeader={() => <Header headerTitle={this.props.headerTitle}/>}
         />
     );
   }
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: 10,
-    backgroundColor: '#F6F6F6',
-  },
-  thumb: {
-    width: 64,
-    height: 64,
-  },
-  text: {
-    flex: 1,
-  },
-  separator: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+//   row: {
+//     flexDirection: 'row',
+//     justifyContent: 'center',
+//     padding: 10,
+//     backgroundColor: '#F6F6F6',
+//   },
+//   thumb: {
+//     width: 64,
+//     height: 64,
+//   },
+//   text: {
+//     flex: 1,
+//   },
+//   separator: {
+//     height: StyleSheet.hairlineWidth,
+//     backgroundColor: '#8E8E8E',
+//   }
+// });
 
 export default ShoppingListView;

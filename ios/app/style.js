@@ -75,6 +75,13 @@ const styles = StyleSheet.create({
     marginTop: 0,
     backgroundColor: '#00aedb',
   },
+  listViewHighlighted: {
+    flex: 1,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#527FE4',
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'center',

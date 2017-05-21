@@ -50,9 +50,9 @@ class AddItem extends Component {
       houseId: houseId,
       userId: userId
     };
-
     axios.post(config.WEB_SERVER_URL + '/add', params)
     .then(res => {
+      console.log(res);
       this.props.screenProps.getItems();
     })
     .then(() => {
