@@ -21,7 +21,7 @@ class CreateUser extends Component {
       userArray: [],
       houseId: null,
       message: null,
-      errorColor: "#00b159"
+      errorColor: "#99ff99"
     };
     this.onPressSubmit = this.onPressSubmit.bind(this);
     this.onPressUser = this.onPressUser.bind(this);
@@ -39,7 +39,7 @@ class CreateUser extends Component {
     this.setState({
       userArray: users,
       houseId: houseId
-    })
+    });
   }
 
   onPressSubmit() {

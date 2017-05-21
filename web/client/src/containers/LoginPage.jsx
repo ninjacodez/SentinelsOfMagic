@@ -62,7 +62,7 @@ class LoginPage extends React.Component {
       localStorage.setItem('loggedIn', true);
 
       // check if a user exists
-      if (response.data.length > 0) {
+      if (response.data.userData.length > 0) {
         console.log('have users');
         // if exists, redirect to SelectUser
         context.setState({
