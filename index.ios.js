@@ -10,7 +10,7 @@ import styles from './ios/app/style.js';
 
 console.disableYellowBox = true;
 
-class newMobile extends Component {
+class fridgr extends Component {
   constructor(props) {
     super(props);
   }
@@ -30,4 +30,4 @@ class newMobile extends Component {
   }
 }
 
-AppRegistry.registerComponent('newMobile', () => newMobile);
+AppRegistry.registerComponent('fridgr', () => fridgr);
