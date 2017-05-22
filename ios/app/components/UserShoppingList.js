@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 import ShoppingListView from './ShoppingListView';
 import dummyUserData from '../../../database/dummyUserData.js';
 import config from '../../../config/index.js';
+import styles from '../style';
+
 
 class UserShoppingList extends React.Component {
 
@@ -30,11 +32,12 @@ class UserShoppingList extends React.Component {
     return {
       title: 'Shopping List',
       headerRight:
-      (<Button
-        onPress={removeFromShoppingList}
-        title="remove items"
-        color="#841584"
-      />),
+      (<TouchableOpacity onPress={removeFromShoppingList}>
+        <Image
+          style={[styles.header, {tintColor: '#0e7afe'}]}
+          source={require('../img/delete-icon.png')}
+        />
+      </TouchableOpacity>),
     };
   };
 
@@ -94,12 +97,5 @@ class UserShoppingList extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 26,
-    height: 26,
-  },
-});
 
 export default UserShoppingList;

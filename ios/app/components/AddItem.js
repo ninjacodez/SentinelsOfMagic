@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Image, Button, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, TextInput, Image, Button, Keyboard, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
 import { Button as MDButton, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
@@ -16,11 +16,12 @@ class AddItem extends Component {
     }
     return {
       headerRight:
-      (<Button
-        onPress={onPressScan}
-        title="Scan"
-        style={styles.header}
-      />),
+      (<TouchableOpacity onPress={onPressScan}>
+        <Image
+          style={[styles.header, {tintColor: '#0e7afe'}]}
+          source={require('../img/barcode-icon.png')}
+        />
+      </TouchableOpacity>),
     };
   }
 

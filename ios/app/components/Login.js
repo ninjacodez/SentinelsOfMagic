@@ -54,7 +54,7 @@ class Login extends Component {
 
   onPressSignUp() {
     const { navigate } = this.props.navigation;
-    navigate('SignUp');
+    navigate('SignUp', { updateForm: this.updateForm.bind(this) });
   }
 
   render() {

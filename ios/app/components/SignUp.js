@@ -16,19 +16,20 @@ class SignUp extends Component {
     this.state = {
       houseName: '',
       password: '',
-      error: null
+      error: null,
+      errorColor: "#d50032"
     };
     this.onPressSubmit = this.onPressSubmit.bind(this);
     this.onPressLogin = this.onPressLogin.bind(this);
   }
 
   onPressLogin() {
-    const { goBack } = this.props.navigation;
-    goBack();
+    const { navigate } = this.props.navigation;
+    navigate('Login');
   }
 
   onPressSubmit() {
-    const { navigate } = this.props.navigation;
+    const { navigate, state } = this.props.navigation;
 
     const houseName = this.state.houseName;
     const password = this.state.password;
@@ -39,11 +40,18 @@ class SignUp extends Component {
     })
     .then((response) => {
       console.log('Sign up success');
-      navigate('Login');
+      this.setState({
+        error: 'Signed Up Successfully',
+        errorColor: '#99ff99'
+      }, setTimeout(() => { navigate('Login'); }, 1000)
+      );
     })
     .catch((err) => {
       console.log('Error occurred during signup:', err.response.data.message);
-      this.setState({ error: err.response.data.message })
+      this.setState({
+        error: err.response.data.message,
+        errorColor: "#d50032"
+      })
     });
   }
 
@@ -62,6 +70,7 @@ class SignUp extends Component {
             value={this.state.houseName}
             autoCorrect={false}
             error={this.state.error}
+            errorColor={this.state.errorColor}
           />
           <TextField
             label="Password"
@@ -72,6 +81,7 @@ class SignUp extends Component {
             autoCapitalize="none"
             secureTextEntry={true}
             error={this.state.error}
+            errorColor={this.state.errorColor}
           />
           <View style={styles.button}>
             <Button
@@ -85,7 +95,7 @@ class SignUp extends Component {
             <Button
               onPress={this.onPressLogin}
               overrides={{textColor: '#ffffff', backgroundColor:'#ffc425'}}
-              text="Go Back to Login"
+              text="Go to Login"
               raised={true}
             />
           </View>
