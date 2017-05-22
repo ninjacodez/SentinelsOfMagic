@@ -59,8 +59,9 @@ class ChangeUser extends Component {
     return (
       <View style={styles.createUser}>
         <ModalDropdown
-          dropdownStyle={styles.dropdown}
-          textStyle={styles.textStyle}
+          style={styles.dropdown}
+          textStyle={styles.dropdownText}
+          dropdownStyle={styles.dropdownBox}
           options={this.state.usernames}
           onSelect={this.onPressUser}
         />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Text, View, Keyboard, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import { Button, Card } from 'react-native-material-design';
 import { TextField } from 'react-native-material-textfield';
 import Main from './Main';
@@ -119,9 +119,9 @@ class CreateUser extends Component {
           </View>
           <View style={styles.center}>
             <ModalDropdown
-              dropdownStyle={styles.dropdown}
-              style={styles.buttonStyle}
-              textStyle={styles.textStyle}
+              style={styles.dropdown}
+              textStyle={styles.dropdownText}
+              dropdownStyle={styles.dropdownBox}
               options={this.state.userArray}
               onSelect={this.onPressUser}
             />

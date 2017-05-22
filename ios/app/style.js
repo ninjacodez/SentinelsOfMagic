@@ -43,20 +43,13 @@ const styles = StyleSheet.create({
   buttonStyle: {
     color: '#0000ff'
   },
-  dropdown: {
-    position: 'absolute',
-    height: (33 + StyleSheet.hairlineWidth) * 5,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'lightgray',
-    borderRadius: 2,
-    backgroundColor: 'white',
-    justifyContent: 'center'
-  },
   center: {
     alignSelf: 'center'
   },
   header: {
-    fontSize: 10,
+    width: 25,
+    height: 25,
+    marginRight: 10
   },
   icon: {
     width: 26,
@@ -65,9 +58,6 @@ const styles = StyleSheet.create({
   btn: {
     width: 50,
     height: 50,
-  },
-  header: {
-    fontSize: 10,
   },
   listView: {
     flex: 1,
@@ -95,9 +85,35 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   separator: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  }
+    height: 0,
+    backgroundColor: '#aaa',
+  },
+  dropdown: {
+    alignSelf: 'center',
+    width: 160,
+    borderWidth: 0,
+    borderRadius: 2,
+    backgroundColor: '#ffc425',
+    shadowColor: '#666',
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    elevation: 1,
+  },
+  dropdownText: {
+    marginVertical: 10,
+    marginHorizontal: 6,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
+  },
+  dropdownBox: {
+    width: 160,
+    borderColor: '#ddd',
+    borderWidth: 2,
+    borderRadius: 3,
+  },
 });
 
 export default styles;

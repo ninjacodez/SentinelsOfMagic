@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image, } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
 import InventoryListView from './InventoryListView';
 import dummyData from '../../../database/dummyData.js';
 import config from '../../../config/index.js';
+import styles from '../style';
 
 class HouseInventory extends React.Component {
 
@@ -12,13 +13,18 @@ class HouseInventory extends React.Component {
       const { navigate } = navigation;
       navigate('AddItem', screenProps);
     }
+
     return {
       title: 'House Inventory',
       headerRight:
-      (<Button
-        onPress={onPressAddItemView}
-        title="+ add item"
-      />),
+      (
+        <TouchableOpacity onPress={onPressAddItemView}>
+          <Image
+            style={[styles.header, {tintColor: '#0e7afe'}]}
+            source={require('../img/add.png')}
+          />
+        </TouchableOpacity>
+      )
     };
   }
 
@@ -44,7 +50,7 @@ class HouseInventory extends React.Component {
   componentDidMount() {
     this.getItems();
   }
-  
+
   render() {
     return (
       <InventoryListView
@@ -57,12 +63,5 @@ class HouseInventory extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 26,
-    height: 26,
-  },
-});
 
 export default HouseInventory;
