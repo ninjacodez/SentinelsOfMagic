@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    // borderWidth: 0.5,
+    // borderColor: '#ffffff'
   },
   rowHighlighted: {
     flex: 1,
@@ -24,6 +26,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    // borderWidth: 0.5,
+    // borderColor: '#ffffff'
   },
   text: {
     marginLeft: 12,

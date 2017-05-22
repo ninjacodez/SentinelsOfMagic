@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   listView: {
     flex: 1,
     marginTop: 0,
-    backgroundColor: '#00aedb',
+    backgroundColor: '#ffffff',
   },
   listViewHighlighted: {
     flex: 1,

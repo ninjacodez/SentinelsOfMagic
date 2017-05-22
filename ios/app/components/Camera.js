@@ -29,7 +29,10 @@ class CameraScreen extends Component {
     .then(() => {
       const { goBack } = this.props.navigation;
       goBack();
-    });
+    })
+    .catch((err) => {
+      alert('Must be a food/drink product');
+    })
   }
 
   render() {

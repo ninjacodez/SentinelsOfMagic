@@ -30,6 +30,8 @@ class Loading extends Component {
           source={require('../img/fridge-and-cat-icon.png')}
         />
         <View style={styles.button}>
+        <Text />
+        <Text />
           <Button
             onPress={this.onPressLogin}
             overrides={{textColor: '#ffffff', backgroundColor:'#f37735'}}

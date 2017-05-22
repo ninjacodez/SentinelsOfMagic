@@ -11,11 +11,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 8,
-    backgroundColor: '#f37735',
+    backgroundColor: '#00b159',
     shadowColor: '#666',
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    // borderWidth: 0.5,
+    // borderColor: '#ffffff'
   },
   needtorestockrow: {
     flex: 1,
@@ -27,6 +29,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    // borderWidth: 0.5,
+    // borderColor: '#ffffff'
   },
   claimedrow: {
     flex: 1,
@@ -38,6 +42,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
+    // borderWidth: 0.5,
+    // borderColor: '#ffffff'
   },
   text: {
     marginLeft: 12,
