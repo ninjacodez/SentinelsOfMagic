@@ -1,4 +1,4 @@
-# fridgr
+# Fridgr Mobile
 
 What if I told you there's an app that can manage your house inventory.
 
