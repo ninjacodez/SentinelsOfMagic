@@ -1,12 +1,13 @@
 # fridgr
-Tracking groceries got you stressed? Chill.
+
+What if I told you there's an app that can manage your house inventory.
 
 ## Team
 
-  - April Ablon
-  - Khoa Vo
-  - Ivana He
-  - Connor Wilson
+  - Tony Cassara
+  - Ryan Chow
+  - Mel Hsieh
+  - Yvonne Zhang
 
 ## Table of Contents
 
@@ -33,8 +34,8 @@ Tracking groceries got you stressed? Chill.
 
 From within the root directory:
 
-```sh
-npm install
+```
+yarn install
 ```
 
 ### PostgreSQL
